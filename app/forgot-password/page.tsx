@@ -41,7 +41,7 @@ export default function ForgotPasswordPage() {
     //     console.log("Password reset email sent to:", email);
     //   }
     // } catch (err) {
-    //   setError("An error occurred. Please try again.");
+    //   setError("An error occurred. Please try again.");git a
     //   console.error("Forgot password error:", err);
     // } finally {
     //   setLoading(false);

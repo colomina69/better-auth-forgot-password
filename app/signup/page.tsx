@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import { signUp } from "@/lib/auth-client";
+import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -26,38 +26,39 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    // e.preventDefault();
-    // setError("");
+    e.preventDefault();
+    setError("");
+    console.log({ name, email, password, confirmPassword });
 
-    // if (password !== confirmPassword) {
-    //   setError("Passwords do not match");
-    //   return;
-    // }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-    // if (password.length < 8) {
-    //   setError("Password must be at least 8 characters");
-    //   return;
-    // }
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters");
+      return;
+    }
 
-    // setLoading(true);
+    setLoading(true);
 
-    // try {
-    //   const result = await signUp.email({
-    //     email,
-    //     name,
-    //     password,
-    //   });
-    //   if (result.error) {
-    //     setError(result.error.message || "Signup failed");
-    //   } else {
-    //     router.push("/dashboard");
-    //   }
-    // } catch (err) {
-    //   setError("An error occurred during signup");
-    //   console.error(err);
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      const result = await signUp.email({
+        email,
+        name,
+        password,
+      });
+      if (result.error) {
+        setError(result.error.message || "Signup failed");
+      } else {
+        router.push("/dashboard");
+      }
+    } catch (err) {
+      setError("An error occurred during signup");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
