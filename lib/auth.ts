@@ -10,6 +10,7 @@ export const auth = betterAuth({
     database: prismaAdapter(prisma, {
         provider: "postgresql", // or "mysql", "postgresql", ...etc
     }),
+    trustedOrigins:["https://auth.benicolo.com"],
      emailAndPassword: {
       enabled: true,
       sendResetPassword: async ({ user, url }) => {
