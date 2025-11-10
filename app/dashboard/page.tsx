@@ -40,7 +40,8 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+    <div className="flex flex-col min-h-screen items-center justify-center bg-background p-4">
+      <h1 className="text-center text-2xl font-bold mb-4">Dashboard</h1>
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Dashboard</CardTitle>
