@@ -65,7 +65,7 @@ export default function DashboardPage() {
           </Button>
         </CardContent>
       </Card>
-      <div className="mt-8 text-center text-sm text-muted-foreground">
+      <div className="mt-8 text-center text-sm">
       <p>copyright benicolo</p>
     </div>
     </div>
